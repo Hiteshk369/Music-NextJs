@@ -8,7 +8,9 @@ const PlayerLayout = ({ children }: any) => {
       <Box className="absolute top-0 w-60 left-0">
         <SideBar />
       </Box>
-      <Box className="ml-60 mb-24">{children}</Box>
+      <Box className="ml-60 mb-24">
+        <Box className="h-[calc(100vh-100px)]">{children}</Box>
+      </Box>
       <Box className="absolute left-0 bottom-0">player</Box>
     </Box>
   );
