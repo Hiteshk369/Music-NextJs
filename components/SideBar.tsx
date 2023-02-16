@@ -111,7 +111,13 @@ const SideBar = () => {
                 className="text-sm font-normal font-poppins hover:text-white"
               >
                 <LinkBox>
-                  <Link href="/" passHref>
+                  <Link
+                    href={{
+                      pathname: "/playlist/[id]",
+                      query: { id: playlist.id },
+                    }}
+                    passHref
+                  >
                     <LinkOverlay className="flex items-center">
                       {playlist.name}
                     </LinkOverlay>
