@@ -24,11 +24,22 @@ const Playlist = ({ playlist }: any) => {
   );
 };
 export const getServerSideProps = async ({ query, req }: any) => {
-  const { id }: any = validateToken(req.cookies.HK_ACCESS_TOKEN);
+  let user;
+  try {
+    user = validateToken(req.cookies.HK_ACCESS_TOKEN);
+  } catch (e) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/signin",
+      },
+    };
+  }
+
   const [data] = await prisma.playlist.findMany({
     where: {
       id: +query.id,
-      userId: id,
+      userId: user.id,
     },
     include: {
       songs: {

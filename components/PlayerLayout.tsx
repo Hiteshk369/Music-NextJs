@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import SideBar from "./SideBar";
 import dynamic from "next/dynamic";
+import PlayerBar from "./PlayerBar";
 
 const PlayerLayout = ({ children }: any) => {
   return (
@@ -11,7 +12,9 @@ const PlayerLayout = ({ children }: any) => {
       <Box className="ml-60 mb-24">
         <Box className="h-[calc(100vh-100px)]">{children}</Box>
       </Box>
-      <Box className="absolute left-0 bottom-0">player</Box>
+      <Box className="absolute left-0 bottom-0">
+        <PlayerBar />
+      </Box>
     </Box>
   );
 };
